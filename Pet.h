@@ -1,5 +1,5 @@
-//pet
 
+class Pet {
 //Pet has needs, out of 100
 Health
 Hunger
@@ -13,5 +13,4 @@ Sleep
 //Gets
 
 //Sets
-
-
+} 
