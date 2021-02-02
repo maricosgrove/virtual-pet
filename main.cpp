@@ -1,15 +1,16 @@
 //executes the alpha menu
 #include "Pet.h"
+#include "Inventory.h"
 #include <iostream>
 #include <stdio.h>
 #include <time.h>
 using namespace std;
 
-#define PLACEHOLDER_TEXT cout << "Item not finished yet"
+#define PLACEHOLDER_TEXT cout << "\n((Item not finished yet))\n"
 
 Pet* currentPet;
+Inventory inventory;
 
-void petMenu();
 void executeMainAction(char choice);
 void load();
 
@@ -19,7 +20,7 @@ int main() {
 		<< "\nHow can I help you?\n";
 	char choice = '1';
 	do {
-		cout << "\np. Go to Pet"
+		cout << "\n\np. Go to Pet"
 			<< "\ni. Go to Inventory"
 			<< "\ns. Go to Shop"
 			<< "\ng. Go to Game Room"
@@ -28,6 +29,7 @@ int main() {
 		cin.ignore();
 		executeMainAction(choice);
 	} while (choice != 'q');
+
 	return 0;
 }
 
@@ -52,20 +54,20 @@ void petMenu() {
 
 	if (!currentPet) {
 		cout << "\nWhoops, there's no pet here! Let's adopt a new pet."
-			<< "\nWhat's your pet's name?";
+			<< "\nWhat's your pet's name?\n";
 		string name_input;
 		cin >> name_input;
 		cin.ignore();
 		currentPet = new Pet(name_input);
 	}
-	
+
 	currentPet->displayMood();
 	//Stat display
 	currentPet->displayStats();
 
 	char choice = '1';
 	do {
-		cout << "\nf. Feed"
+		cout << "\n\nf. Feed"
 			<< "\nt. Give toy"
 			<< "\nc. Clean pet"
 			<< "\nn. Nap time"
